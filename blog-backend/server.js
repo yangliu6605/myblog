@@ -25,9 +25,6 @@ app.use(cors({
 }));
 
 app.use('/api/posts', postsRoutes);
-app.get('/', (req, res) => {
-  res.send('Hello, welcome to the API!');
-});
 
 
 app.listen(PORT, () => {

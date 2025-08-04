@@ -3,6 +3,19 @@ import { useState, useEffect } from 'react';
 // import { AuthContext } from '../contexts/AuthContext';
 
 function PostList() {
+    // 格式化时间函数 - 显示年月日时分
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      };
+      return date.toLocaleDateString('zh-CN', options);
+    };
 
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -40,7 +53,7 @@ function PostList() {
                    </Link>
                    <p>{post.subtitle}</p>
                    <p>{post.author}</p>
-                   <p>{post.createdAt}</p>
+                   <p>{formatDate(post.createdAt)}</p>
                </div>
            ))}
         </div>

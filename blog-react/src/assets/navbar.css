@@ -1,38 +1,33 @@
-.navbar {
-    background-color: #ffffff;
-    color: #0f0f0f;
-    padding: 10px 20px;
+header {
+    background-color: #fff;
+    margin: 0;
+  }
+
+  .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 40px;
   }
-  .navbar-brand {
-    font-size: 1.5rem;
-    font-family: '楷体_GB2312',serif;
+
+  .navbar h1{
     font-weight: bold;
-    text-decoration: none;
     color: black;
-    margin: auto;
+    margin-left: 20px;
+  }
+
+  .navbar a {
+    text-decoration: none;
   }
 
   .navbar ul {
     list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+
+    gap: 10px;
   }
 
   .navbar ul li {
-    margin-left: 10px;
-  }
-
-  .nav-item {
-    text-decoration: none;
     color: black;
-    margin-left: 10px;
   }
 
-  .nav-item:hover {
-    color: darkgray;
-  }
+

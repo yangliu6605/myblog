@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   
     try {
       const newPost = await post.save(); // 保存新文章到数据库
-      res.status(201).json(newPost); // 成功创建，返回状态码 201 和新文章数据
+      res.status(200).json(newPost); // 成功创建，返回状态码 201 和新文章数据
     } catch (err) {
       res.status(400).json({ message: err.message }); // 数据验证失败
     }
@@ -49,17 +49,37 @@ router.get('/:id', async (req, res) => {
 // 更新文章
 router.put('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
-    if (!post) {
+    const updateData = {};
+    if (req.body.title) updateData.title = req.body.title;
+    if (req.body.subtitle) updateData.subtitle = req.body.subtitle;
+    if (req.body.content) updateData.content = req.body.content;
+
+    const updatedPost = await Post.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: updateData },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedPost) {
       return res.status(404).json({ message: '文章不存在' });
     }
-    post.title = req.body.title || post.title;
-    post.subtitle = req.body.subtitle || post.subtitle;
-    post.content = req.body.content || post.content;
-    const updatedPost = await post.save();
+
     res.json(updatedPost);
   } catch (err) {
     res.status(400).json({ message: err.message });
+  }
+});
+
+// 删除文章
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedPost = await Post.findByIdAndDelete(req.params.id);
+    if (!deletedPost) {
+      return res.status(404).json({ message: '文章不存在' });
+    }
+    res.json({ message: '文章已删除' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 
