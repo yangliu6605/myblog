@@ -1,0 +1,33 @@
+header {
+    background-color: #fff;
+    margin: 0;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  .navbar h1{
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+  }
+
+  .navbar ul a {
+    text-decoration: underline;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+  }
+
+  .navbar ul li {
+    color: black;
+  }
+
+
