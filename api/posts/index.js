@@ -20,9 +20,25 @@ function verifyToken(req) {
 }
 
 export default async function handler(req, res) {
+  // 设置 CORS 头
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
+  
+  // 处理 OPTIONS 请求
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   let client;
 
   try {
+    // 调试日志
+    console.log('[API] Request method:', req.method);
+    console.log('[API] MONGODB_URI exists:', !!uri);
+    console.log('[API] Connecting to MongoDB...');
     client = new MongoClient(uri);
     await client.connect();
     const db = client.db('blog-db');
