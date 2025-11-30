@@ -17,9 +17,10 @@ export const useLogin = () => {
         password
       })
       
-      const userData = response.data
+      // API 返回的数据格式: { message: '登录成功', user: { username, token } }
+      const userData = response.data.user
 
-      // 使用 context 的 login 方法，避免重复的 localStorage 操作
+      // 使用 context 的 login 方法，保存用户信息和 token
       contextLogin(userData)
 
       // update loading state

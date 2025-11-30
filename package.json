@@ -11,12 +11,17 @@
     "vercel:dev": "vercel dev"
   },
   "dependencies": {
+    "@vercel/edge-config": "^1.4.0",
     "@vercel/postgres": "^0.10.0",
     "axios": "^1.10.0",
+    "bcrypt": "^5.1.1",
     "json-server": "^1.0.0-beta.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.3"
+    "react-router-dom": "^7.6.3",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
