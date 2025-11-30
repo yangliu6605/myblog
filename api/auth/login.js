@@ -45,7 +45,10 @@ export default async function handler(req, res) {
     }
 
     // 验证密码
+    console.log('Comparing password:', password);
+    console.log('Stored hash:', user.passwordHash);
     const match = await bcrypt.compare(password, user.passwordHash);
+    console.log('Password match result:', match);
 
     if (!match) {
       return res.status(400).json({ error: '密码错误' });
