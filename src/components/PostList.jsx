@@ -16,14 +16,12 @@ function PostList({ post }) {
     };
 
     return (
-        <div className="post-list">
-           <Link to={`/post/${post._id}`}>
-            <h4>{post.title}</h4>
-          </Link>
+        <Link to={`/post/${post._id}`} className="post-list-item">
+          <h4>{post.title}</h4>
           <p>{post.subtitle}</p>
           <p>{post.author}</p>
           <p>{formatDate(post.createdAt)}</p>
-        </div>   
+        </Link>   
     );
 }
 

@@ -80,7 +80,7 @@ const PostContent = () => {
       {user && (
         <div>
           <button onClick={handleEdit}>编辑</button>
-          <button onClick={handleDelete} style={{ marginLeft: '10px', backgroundColor: '#e7195a' }}>删除</button>
+          <button onClick={handleDelete}>删除</button>
         </div>
       )}
     </div>
