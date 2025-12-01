@@ -106,10 +106,21 @@ body {
   background-color: #fff;
   margin: 0 auto;
   padding: 10px;
+  align-items: center;
 }
 
 .post-detail-container h4 {
   font-size: 1.2em;
+}
+
+.post-detail-date {
+  text-align: right;
+}
+
+.post-detail-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .post-detail-container button {

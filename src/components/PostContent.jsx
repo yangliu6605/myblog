@@ -78,7 +78,7 @@ const PostContent = () => {
       </div>
       {/* 只有登录用户才能看到编辑和删除按钮 */}
       {user && (
-        <div>
+        <div className="post-detail-buttons">
           <button onClick={handleEdit}>编辑</button>
           <button onClick={handleDelete}>删除</button>
         </div>
