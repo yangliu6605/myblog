@@ -7,8 +7,7 @@
   }
   
 body {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     background-color: #f1f1f1;
     font-family: 'Noto Serif SC', serif;
     color: black;
@@ -17,34 +16,55 @@ body {
 
 .pages {
   max-width: 1200px;
-  padding: 20px;
+  padding: 32px 20px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .pages {
+    padding: 20px 16px;
+  }
 }
 
 /* 首页 */
 .post-list {
   background: #fff;
-  border-radius: 4px;
+  border-radius: 12px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 0;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
   max-width: 800px;
+  overflow: hidden;
+}
+
+.post-list > a {
+  display: block;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s;
+}
+
+.post-list > a:last-child {
+  border-bottom: none;
+}
+
+.post-list > a:hover {
+  background-color: #f9fafb;
 }
 
 .post-list h4 {
-  font-size: 1.2em;
-  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  margin: 0 0 8px 0;
+  font-weight: 600;
 }
 
 .post-list p {
-  margin: 0;
-  font-size: 1em;
-}
-
-.post-list a {
-  text-decoration: none;
-  color: inherit;
+  margin: 0 0 8px 0;
+  font-size: 0.95em;
+  color: #6b7280;
+  line-height: 1.5;
 }
 
 /* 文章详情页面 */
